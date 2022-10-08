@@ -43,9 +43,10 @@ class SetupPath:
             airsim_path = os.path.join(parent, 'Parser')
             client_path = os.path.join(airsim_path, 'WP_Parser.py')
             if os.path.exists(client_path):
-                sys.path.insert(1, parent)
+                sys.path.insert(0, parent)
         else:
             logging.warning("KDR module not found in parent folder.")
 
 SetupPath.addAirSimModulePath()
-SetupPath.addKDRModulePath()
+# SetupPath.addKDRModulePath()
+

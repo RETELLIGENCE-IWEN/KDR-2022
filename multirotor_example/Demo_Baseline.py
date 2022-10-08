@@ -1,10 +1,11 @@
 
 import setup_path
 import airsim
+import WP_Parser
 
 import os
 
-import WP_Parser
+
 
 
 # m/s
