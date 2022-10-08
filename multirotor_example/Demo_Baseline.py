@@ -81,6 +81,7 @@ if WPP.IsFileOpen:
 
             way_points.append([int(new.Xoff), int(new.Yoff), int(new.Zoff)*-1])
             client.moveToPositionAsync(int(new.Xoff), int(new.Yoff), int(new.Zoff)*-1, 5).join()
+            # client.rotateToYawAsync().join
 
 
         else:
