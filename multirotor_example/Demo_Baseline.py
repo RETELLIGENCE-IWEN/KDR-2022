@@ -61,8 +61,14 @@ if WPP.IsFileOpen:
 
     con = 1
     while(1):
+
+        # Ignore WaPoint #17
         if con == 17: con+=1
+
+        # Get WayPoint Data index = con
         new = WPP.ReadData(con, "WP")
+
+        # Proceed If Next WayPoint Exist
         if new:
             con += 1
 
