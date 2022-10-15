@@ -1,5 +1,6 @@
 
-
+import os
+import sys
 
 # Final Struct Data
 class WP_Struct:
@@ -12,6 +13,7 @@ class WP_Struct:
         self.Xoff = _values[3]
         self.Yoff = _values[4]
         self.Zoff = _values[5]
+        self.ZR = _values[6]
 
         if not isWP:
             self.XR = _values[6]
@@ -23,7 +25,7 @@ class WP_Struct:
 # Parser
 class WP_Data:
 
-    def __init__(self, NameOfFile, Prefix):
+    def __init__(self, NameOfFile, Prefix=None):
 
         self.IsFileOpen = False
 
@@ -38,7 +40,7 @@ class WP_Data:
 
     
     # Read Data and return in the form of WP_Struct
-    def ReadData(self, index, types):
+    def ReadData(self, index, types="WP"):
 
         if self.IsFileOpen:
 
@@ -68,12 +70,9 @@ class WP_Data:
 
 if __name__ == "__main__":
     # Example Useage ####################################################
+    My = WP_Data(os.path.join(sys.path[0], "WayPoints.txt"))
 
-    # My = WP_Data("C:/Users/ailish7/Documents/AirSim/WayPoints.txt", None)
-    My = WP_Data("WayPoints.txt", None)
-
-
-    if My.IsFileOpen: Got_WP = My.ReadData(4,"WP")
+    if My.IsFileOpen: Got_WP = My.ReadData(0,"WP")
 
     if Got_WP:
         print(Got_WP.X)
@@ -81,7 +80,8 @@ if __name__ == "__main__":
         print(Got_WP.Z)
         print(Got_WP.Xoff)
         print(Got_WP.Zoff)
-        print(Got_WP.Yoff, "\n")
+        print(Got_WP.Yoff)
+        print(Got_WP.ZR, "\n")
 
 
     if My.IsFileOpen: Got_PS = My.ReadData(0,"PS")

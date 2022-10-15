@@ -4,6 +4,7 @@ import airsim
 import WP_Parser
 
 import os
+import sys
 
 
 
@@ -22,6 +23,7 @@ desired_speed  = 5
 
 
 
+docs = os.path.join(sys.path[0], "WayPoints.txt")
 
 
 
@@ -37,20 +39,15 @@ client.armDisarm(True)
 # wind = airsim.Vector3r(-1,0,0)
 # client.simSetWind(wind)
 
-
+print("Taking Off")
 client.takeoffAsync().join()
+print("Initializing")
 # client.moveToPositionAsync(22, -10, -25, 5).join()
 
 
 way_points = []
 
 
-
-home = os.path.expanduser('~')
-docs = os.path.join(home, "Documents")
-docs = os.path.join(docs, "AirSim")
-docs = os.path.join(docs, "WayPoints.txt")
-print(docs)
 
 
 
@@ -64,8 +61,9 @@ print(docs)
 # """
 WPP = WP_Parser.WP_Data(docs, None)
 if WPP.IsFileOpen:
+    print("GOGO")
 
-    con = 0
+    con = 1
     while(1):
 
         new = WPP.ReadData(con, "WP")
@@ -82,6 +80,7 @@ if WPP.IsFileOpen:
             way_points.append([int(new.Xoff), int(new.Yoff), int(new.Zoff)*-1])
             client.moveToPositionAsync(int(new.Xoff), int(new.Yoff), int(new.Zoff)*-1, 5).join()
             # client.rotateToYawAsync().join
+            client.rotateToYawAsync(int(new.XR)).join()
 
 
         else:
@@ -92,7 +91,8 @@ if WPP.IsFileOpen:
 
     client.moveToPositionAsync(int(new.Xoff), int(new.Yoff), int(new.Zoff)*-1, 5).join()
    
-   
+else:
+    print("Failed To open WayPoint File")
    
    
    
