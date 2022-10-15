@@ -61,7 +61,7 @@ if WPP.IsFileOpen:
 
     con = 1
     while(1):
-
+        if con == 17: con+=1
         new = WPP.ReadData(con, "WP")
         if new:
             con += 1
