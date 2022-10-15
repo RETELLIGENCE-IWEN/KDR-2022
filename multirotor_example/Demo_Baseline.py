@@ -23,11 +23,7 @@ desired_speed  = 5
 
 
 
-docs = os.path.join(sys.path[0], "WayPoints.txt")
-
-
-
-
+docs = os.path.join(sys.path[0], "multirotor_example/WayPoints.txt")
 
 
 # connect to the AirSim simulator
@@ -80,13 +76,13 @@ if WPP.IsFileOpen:
             way_points.append([int(new.Xoff), int(new.Yoff), int(new.Zoff)*-1])
             client.moveToPositionAsync(int(new.Xoff), int(new.Yoff), int(new.Zoff)*-1, 5).join()
             # client.rotateToYawAsync().join
-            client.rotateToYawAsync(int(new.XR)).join()
+            client.rotateToYawAsync(int(new.ZR)).join()
 
 
         else:
             break
 
-    new = WPP.ReadData(0, "WP")
+    new = WPP.ReadData(1, "WP")
     way_points.append([int(new.Xoff), int(new.Yoff), int(new.Zoff)*-1])
 
     client.moveToPositionAsync(int(new.Xoff), int(new.Yoff), int(new.Zoff)*-1, 5).join()

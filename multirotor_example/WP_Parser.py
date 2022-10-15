@@ -27,6 +27,8 @@ class WP_Data:
 
     def __init__(self, NameOfFile, Prefix=None):
 
+        print("Opening : ", NameOfFile)
+
         self.IsFileOpen = False
 
         try:
