@@ -2,29 +2,14 @@
 import setup_path
 import airsim
 import WP_Parser
-
 import os
 import sys
 
-
-
-
-# m/s
+# Desired Speed in m/s
 desired_speed  = 5
 
-
-
-
-
-
-
-
-
-
-
-
+# WayPoints Data Path
 docs = os.path.join(sys.path[0], "multirotor_example/WayPoints.txt")
-
 
 # connect to the AirSim simulator
 client = airsim.MultirotorClient()
@@ -32,33 +17,21 @@ client.confirmConnection()
 client.enableApiControl(True)
 client.armDisarm(True)
 
-# wind = airsim.Vector3r(-1,0,0)
-# client.simSetWind(wind)
-
+# TakeOff
 print("Taking Off")
 client.takeoffAsync().join()
 print("Initializing")
-# client.moveToPositionAsync(22, -10, -25, 5).join()
-
-
 way_points = []
 
 
-
-
-
-
-
-
-
-# client.moveByVelocityAsync(0, 0, 5, 10).join()
-
-
-# """
+# Create WayPoint Parser
 WPP = WP_Parser.WP_Data(docs, None)
+
+# If Found WayPoint Data
 if WPP.IsFileOpen:
     print("GOGO")
 
+    # LOOP
     con = 1
     while(1):
 
@@ -81,46 +54,18 @@ if WPP.IsFileOpen:
 
             way_points.append([int(new.Xoff), int(new.Yoff), int(new.Zoff)*-1])
             client.moveToPositionAsync(int(new.Xoff), int(new.Yoff), int(new.Zoff)*-1, 5).join()
-            # client.rotateToYawAsync().join
             client.rotateToYawAsync(int(new.ZR)).join()
-
 
         else:
             break
 
+    # Return To First WayPoint
     new = WPP.ReadData(1, "WP")
     way_points.append([int(new.Xoff), int(new.Yoff), int(new.Zoff)*-1])
-
     client.moveToPositionAsync(int(new.Xoff), int(new.Yoff), int(new.Zoff)*-1, 5).join()
    
 else:
     print("Failed To open WayPoint File")
    
-   
-   
-   
-   
-    # client.hoverAsync().join()
-    
-    # client.landAsync().join()
-
-    # """
-
-
 client.hoverAsync().join()
-
 client.landAsync().join()
-
-
-
-# client.armDisarm(False)
-# client.enableApiControl(False)
-
-
-# airsim.wait_key('Press any key to takeoff')
-
-# client.takeoffAsync().join()
-# client.moveToPositionAsync(22, -10, -25, 5).join()
-
-# state = client.getMultirotorState()
-# print("state: %s" % pprint.pformat(state))
