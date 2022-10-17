@@ -11,6 +11,9 @@
  7. Click run simulator to open simulator 
  8. Open and run multirotor_example/DemoBaseline.py
 
+
+
+
 - KDR 2022 simulator runs based on AirSim (https://microsoft.github.io/AirSim/)
 - Server connection is not stable at the moment, however bestlap data is always stored loaclly. By pressing upload best lap button, your locally saved best lap data will be posted online, only if server is online.
 - Feel free to ask questions : retelligence@kakao.com
