@@ -3,11 +3,11 @@
  
  1. Clone this directory
  2. Download KDR 2022 simulator from https://scm.kau.ac.kr/ko/program/all/view/813/notice/view/46?p=1
- 3. Open KDR 2022 simulator 
- 4. Check license acknowledgements
- 5. Enter permission code
- 6. Click run simulator to open simulator 
- 7. Open and run multirotor_example/DemoBaseline.py
+ 3. Open KDR 2022 simulator (KDR_2022.exe)
+ 5. Check license acknowledgements
+ 6. Enter permission code
+ 7. Click run simulator to open simulator 
+ 8. Open and run multirotor_example/DemoBaseline.py
 
 # KDR 2022 simulator runs based on AirSim (https://microsoft.github.io/AirSim/)
 # Server connection is not stable at the moment, however bestlap data is always stored loaclly.
