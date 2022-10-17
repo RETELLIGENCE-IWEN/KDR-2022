@@ -4,7 +4,7 @@
  1. Clone this directory
  2. Download KDR 2022 simulator from https://scm.kau.ac.kr/ko/program/all/view/813/notice/view/46?p=1
  3. Open KDR 2022 simulator 
- 4. check license acknowledgements
+ 4. Check license acknowledgements
  5. Enter permission code
  6. Click run simulator to open simulator 
  7. Open and run multirotor_example/DemoBaseline.py
