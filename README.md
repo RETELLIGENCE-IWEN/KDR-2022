@@ -4,7 +4,7 @@
  1. Clone this directory
  2. Download KDR 2022 simulator from 
    - https://scm.kau.ac.kr/ko/program/all/view/813/notice/view/46?p=1
-   - (https://drive.google.com/drive/u/1/folders/1wLymWa2mLiU6dSUah2lqV5ZtwY6eTgS_) 
+   - "https://drive.google.com/drive/u/1/folders/1wLymWa2mLiU6dSUah2lqV5ZtwY6eTgS_"
  3. Open KDR 2022 simulator (KDR_2022.exe)
  5. Check license acknowledgements
  6. Enter permission code
