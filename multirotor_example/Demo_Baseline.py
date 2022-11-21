@@ -31,6 +31,9 @@ WPP = WP_Parser.WP_Data(docs, None)
 if WPP.IsFileOpen:
     print("GOGO")
 
+    # example
+    responses = client.simGetImages([airsim.ImageRequest("0", airsim.ImageType.Scene, False, False)])
+
     # LOOP
     con = 1
     while(1):
