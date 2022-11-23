@@ -21,3 +21,6 @@
 - Create your own code based on DemoBaseline.py and don't forget to add AI functionallity. The gates inside the simulator will have random noises every session. That being said, with only the baseline code, the drone will not make it through the whole path.
 
 - To update the simulator, copy the new .Pak file and paste it into KDR 2022 simulator/KDR_2022/Content/Paks/
+
+
+# Update : Moved "Post Best Lap To Server" Functionallity To Lobby
