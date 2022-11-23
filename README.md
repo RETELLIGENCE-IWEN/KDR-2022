@@ -23,4 +23,4 @@
 - To update the simulator, copy the new .Pak file and paste it into KDR 2022 simulator/KDR_2022/Content/Paks/
 
 
-# Update : Moved "Post Best Lap To Server" Functionallity To Lobby
+Update : Moved "Post Best Lap To Server" Functionallity To Lobby
